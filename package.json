@@ -1,6 +1,6 @@
 {
   "name": "do-lint",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "快速初始化前端项目的代码质量工具，一键配置 ESLint、Prettier、Husky 和 lint-staged",
   "main": "dist/index.js",
   "bin": {
@@ -42,18 +42,21 @@
   },
   "homepage": "https://github.com/KevinAndrewDong/do-lint#readme",
   "dependencies": {
-    "commander": "^11.1.0",
+    "commander": "^10.0.0",
     "eslint": "^8.56.0",
     "prettier": "^3.1.1",
-    "lint-staged": "^15.2.0",
+    "lint-staged": "^13.2.3",
     "husky": "^8.0.3",
     "inquirer": "^8.2.6"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
+    "@types/node": "^16.18.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "@types/inquirer": "^8.2.6",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
