@@ -1,0 +1,45 @@
+{
+  "name": "go-lint",
+  "version": "1.0.0",
+  "description": "One-click commands to quickly install ESLint, Prettier, Lint-staged, Git hooks, and initialize relevant rules, so as to automatically format the code and intercept errors when saving and committing.",
+  "main": "dist/index.js",
+  "bin": {
+    "go-lint": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky install",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "link": "npm run build && sudo npm link",
+    "unlink": "sudo npm unlink",
+    "test:local": "npm run build && node dist/index.js init -t vue-ts"
+  },
+  "keywords": [
+    "eslint",
+    "prettier",
+    "lint-staged",
+    "husky",
+    "git-hooks",
+    "code-quality"
+  ],
+  "author": "dong",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "lint-staged": "^15.2.0",
+    "husky": "^8.0.3",
+    "inquirer": "^8.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@types/inquirer": "^8.2.6",
+    "typescript": "^5.3.3"
+  }
+}
