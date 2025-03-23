@@ -26,10 +26,34 @@ npm install -g go-lint
 
 ## 使用方法
 
-在你的项目根目录下运行：
+### 交互式使用
+
+直接运行 `go-lint init` 命令，工具会引导你选择项目类型和路径：
 
 ```bash
-go-lint init -t <project-type>
+go-lint init
+```
+
+你将看到类似这样的交互提示：
+
+```bash
+? 选择项目类型: (Use arrow keys)
+❯ Vue + TypeScript
+  Vue + JavaScript
+  React + TypeScript
+  React + JavaScript
+  Angular + TypeScript
+  Angular + JavaScript
+
+? 输入项目路径: (./)
+```
+
+### 命令行参数使用
+
+你也可以直接使用命令行参数来指定项目类型和路径：
+
+```bash
+go-lint init -t <project-type> -p <project-path>
 ```
 
 ### 项目类型
@@ -43,17 +67,45 @@ go-lint init -t <project-type>
 - `angular-ts`: Angular + TypeScript
 - `angular-js`: Angular + JavaScript
 
-### 示例
+### 使用示例
 
 ```bash
-# Vue + TypeScript 项目
+# 交互式使用
+go-lint init
+
+# 使用命令行参数
 go-lint init -t vue-ts
-
-# React + JavaScript 项目
 go-lint init -t react-js
-
-# Angular + TypeScript 项目
 go-lint init -t angular-ts
+
+# 在指定目录初始化
+go-lint init -t vue-ts -p ./my-vue-project
+```
+
+### 初始化后的文件结构
+
+```
+your-project/
+├── .eslintrc.js           # ESLint 配置
+├── .eslintrc.config.js    # 配置文件专用的 ESLint 配置
+├── .prettierrc.js         # Prettier 配置
+├── .lintstagedrc.js       # lint-staged 配置
+├── .husky/                # Git hooks 配置
+│   └── pre-commit        # pre-commit hook
+└── package.json          # 项目配置（已更新）
+```
+
+### 初始化后的 npm 脚本
+
+```json
+{
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.vue",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,json,md}\"",
+    "prepare": "husky install"
+  }
+}
 ```
 
 ## 配置说明
