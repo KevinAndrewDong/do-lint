@@ -1,10 +1,10 @@
 {
-  "name": "go-lint",
-  "version": "1.0.0",
-  "description": "One-click commands to quickly install ESLint, Prettier, Lint-staged, Git hooks, and initialize relevant rules, so as to automatically format the code and intercept errors when saving and committing.",
+  "name": "do-lint",
+  "version": "1.0.1",
+  "description": "快速初始化前端项目的代码质量工具，一键配置 ESLint、Prettier、Husky 和 lint-staged",
   "main": "dist/index.js",
   "bin": {
-    "go-lint": "./dist/index.js"
+    "do-lint": "./dist/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,8 @@
     "start": "node dist/index.js",
     "link": "npm run build && sudo npm link",
     "unlink": "sudo npm unlink",
-    "test:local": "npm run build && node dist/index.js init -t vue-ts"
+    "test:local": "npm run build && node dist/index.js init -t vue-ts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "eslint",
@@ -23,10 +24,23 @@
     "lint-staged",
     "husky",
     "git-hooks",
-    "code-quality"
+    "code-quality",
+    "vue",
+    "react",
+    "angular",
+    "typescript",
+    "javascript"
   ],
-  "author": "dong",
+  "author": "KevinAndrewDong",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinAndrewDong/do-lint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KevinAndrewDong/do-lint/issues"
+  },
+  "homepage": "https://github.com/KevinAndrewDong/do-lint#readme",
   "dependencies": {
     "commander": "^11.1.0",
     "eslint": "^8.56.0",
